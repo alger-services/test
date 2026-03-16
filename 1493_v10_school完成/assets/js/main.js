@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ────────────────────────────────────
      Form Validation + Google Apps Script Submit
      ─────────────────────────────────── */
-  const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbw6iyj8qvrNBVdkB2nA0nzm7Uew8OJmubDqrcygznRhQ5e0qHZ5Add4mPHpaqbId9DJ/exec';
+  const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbw2OFG4OmTTr1INVg6JACCLexZczCk_hIjL7RAeWW1l-JLvTA6Z8AQEdbWLbTx-sNKJPQ/exec';
 
   // Validation helpers
   function isValidEmail(email) {
@@ -196,19 +196,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const formData = new FormData(form);
-      const data = {};
+      const params = new URLSearchParams();
       formData.forEach((value, key) => {
-        data[key] = value;
+        params.append(key, value);
       });
+
+      console.log('正在嘗試送出表單至:', WEBHOOK_URL);
 
       const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
-        mode: 'no-cors', // GAS webhooks often work better with no-cors if not returning CORS headers
-        body: JSON.stringify(data),
+        mode: 'no-cors',
+        body: params,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/x-www-form-urlencoded'
         }
       });
+
+      console.log('表單送出狀態:', response.type);
 
       // With mode 'no-cors', response type will be 'opaque' and ok will be false.
       // However, usually we can assume success if no error is thrown.
