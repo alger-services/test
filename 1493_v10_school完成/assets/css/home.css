@@ -1,0 +1,77 @@
+@media (max-width: 768px) {
+
+    /* Portal Cards Refinement */
+    .portal-grid {
+        gap: 0.75rem !important;
+    }
+
+    .portal-card {
+        min-height: unset !important;
+        padding: 1rem 1.25rem !important;
+    }
+
+    .portal-card-content {
+        display: grid !important;
+        grid-template-columns: 1fr auto !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        text-align: left;
+    }
+
+    .portal-label {
+        grid-column: 1 / -1;
+        margin-bottom: 0.25rem !important;
+        font-size: 0.7rem !important;
+    }
+
+    .portal-card h3 {
+        grid-column: 1;
+        font-size: 1.1rem !important;
+        margin-bottom: 0 !important;
+    }
+
+    .portal-card p:not(.portal-label) {
+        display: none !important;
+    }
+
+    .portal-enter {
+        grid-column: 2;
+        margin: 0 !important;
+        padding: 0.5rem 1.2rem !important;
+        font-size: 0.8rem !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+        color: #fff !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.5) !important;
+        border-radius: 50px !important;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: all 0.3s ease;
+    }
+
+    /* Why Grid 3x2 Layout */
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.75rem !important;
+    }
+
+    .why-item {
+        padding: 1rem !important;
+    }
+
+    .why-icon {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.4rem !important;
+    }
+
+    .why-item h3 {
+        font-size: 0.88rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+
+    .why-item p {
+        display: none !important;
+        /* Hide description to keep it shorter */
+    }
+}

@@ -1,0 +1,214 @@
+:root {
+    --mag-orange: #e8621a;
+    --mag-bg-soft: #fdfaf8;
+    --mag-border: rgba(232, 98, 26, 0.15);
+    --mag-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+    --mag-radius: 24px;
+}
+
+.story-container {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+}
+
+/* =========================================
+主案例 (混合佈局：上方對齊，下方滿版)
+========================================= */
+.mag-article {
+    background: #fff;
+    border-radius: var(--mag-radius);
+    box-shadow: var(--mag-shadow);
+    border: 1px solid var(--mag-border);
+    margin-bottom: 5rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-story-top {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 4rem 4rem 0;
+}
+
+.hero-story-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mag-image-wrap {
+    background: #fcf9f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 0rem 0rem;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.mag-image-wrap img {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.12));
+    transform: translateY(-5px);
+}
+
+.hero-story-badge {
+    color: #888;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.6rem;
+    display: block;
+    font-weight: 500;
+}
+
+.hero-story-title {
+    font-size: 1.8rem;
+    line-height: 1.35;
+    color: #222;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+}
+
+.hero-story-meta {
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.hero-story-student {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--mag-orange);
+    margin-bottom: 0.3rem;
+}
+
+.hero-story-admit {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.hero-story-body {
+    padding: 0rem 4rem 4rem;
+}
+
+.hero-story-text {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #444;
+}
+
+.hero-story-text p {
+    margin-bottom: 1.2rem;
+}
+
+.hero-story-text p:last-child {
+    margin-bottom: 0;
+}
+
+.story-quote {
+    margin: 1.5rem 0;
+    padding: 0 0 0 1.2rem;
+    border-left: 3px solid rgba(232, 98, 26, 0.3);
+    font-size: 1.05rem;
+    color: #666;
+    font-style: italic;
+}
+
+@media (max-width: 900px) {
+    .hero-story-top {
+        display: block;
+        padding: 2.5rem 1.8rem 0;
+    }
+
+    .mag-image-wrap {
+        display: none;
+    }
+
+    .hero-story-body {
+        padding: 1.5rem 1.8rem 2.5rem;
+    }
+
+    .hero-story-title {
+        font-size: 1.6rem;
+    }
+}
+
+/* =========================================
+其他推薦案例 (簡潔卡片)
+========================================= */
+.more-stories-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.more-stories-header h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+.more-stories-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.secondary-card {
+    background: #fff;
+    padding: 2.2rem 2rem;
+    border-radius: 16px;
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.secondary-card:hover {
+    border-color: var(--mag-border);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    transform: translateY(-3px);
+}
+
+.secondary-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.secondary-card-student {
+    font-size: 0.95rem;
+    color: var(--mag-orange);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.secondary-card-admit {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dotted #e5e5e5;
+    line-height: 1.5;
+}
+
+.secondary-card-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+}

@@ -1,0 +1,24 @@
+<footer id="footer">
+        <div class="container">
+            <div class="footer-compact-links">
+                <a href="{0}news.html">最新消息</a>
+                <a href="{0}about.html">關於我們</a>
+                <a href="{0}plans.html">輔導方案</a>
+                <a href="{0}stories.html">學長姐分享</a>
+                <a href="{0}faq.html">Q&amp;A</a>
+                <a href="{0}contact.html">免費諮詢</a>
+                <a href="{1}EMBA/index.html">EMBA / 研究所</a>
+                <a href="{2}sitemap.html">網站導覽</a>
+            </div>
+            <div class="footer-compact-info">
+                <div class="footer-contact-row">
+                    <span>📍 台北市大安區忠孝東路三段96號8樓之一</span>
+                    <span>📞 (02) 2775-2597</span>
+                    <span>✉ win@1493.com.tw</span>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 甄選1493 ｜ 版權所有
+                </div>
+            </div>
+        </div>
+    </footer>

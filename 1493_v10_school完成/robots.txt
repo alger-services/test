@@ -1,0 +1,8 @@
+# 甄選1493 robots.txt
+# Conservative and safe — allow full indexing
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.1493.com.tw/sitemap.xml

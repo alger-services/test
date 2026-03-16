@@ -1,0 +1,195 @@
+/* Modern Premium Redesign for About Page - Compact Version */
+:root {
+    --brand-orange: #e8621a;
+    --brand-orange-light: rgba(232, 98, 26, 0.05);
+    --brand-orange-soft: rgba(232, 98, 26, 0.1);
+    --text-dark: #2d2d2d;
+    --text-gray: #666;
+    --bg-warm: #fdfaf8;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    --card-radius: 16px;
+    --section-padding: 3.5rem 0;
+}
+
+/* --- Section 1: Advantage Cards --- */
+.advantage-section {
+    padding: var(--section-padding);
+    background: #fff;
+}
+
+.advantage-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.adv-card {
+    background: #fff;
+    padding: 2.5rem 2.2rem;
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.adv-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.06);
+    border-color: var(--brand-orange-soft);
+}
+
+.adv-num {
+    font-size: 3.8rem;
+    font-weight: 900;
+    color: var(--brand-orange-soft);
+    position: absolute;
+    top: -5px;
+    right: 15px;
+    line-height: 1;
+    z-index: 0;
+    user-select: none;
+}
+
+.adv-card h3 {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+    padding-right: 2.5rem;
+}
+
+.adv-card p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--text-gray);
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Section 2: Training Blocks --- */
+.training-section {
+    padding: var(--section-padding);
+    background: var(--bg-warm);
+}
+
+.training-container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.training-item {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s;
+}
+
+.training-item:hover {
+    transform: translateY(-2px);
+}
+
+.training-item:last-child {
+    margin-bottom: 0;
+}
+
+.training-item.even {
+    flex-direction: row-reverse;
+}
+
+.training-img-wrap {
+    flex: 1;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    background: #eee;
+}
+
+.training-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.training-content {
+    flex: 1.2;
+    padding: 0.5rem;
+}
+
+.training-content h4 {
+    font-size: 1.4rem;
+    color: var(--brand-orange);
+    margin-bottom: 0.8rem;
+    font-weight: 800;
+    position: relative;
+    display: inline-block;
+}
+
+.training-content h4::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 32px;
+    height: 3px;
+    background: var(--brand-orange);
+    border-radius: 10px;
+}
+
+.training-content p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #444;
+    margin: 0;
+}
+
+@media (max-width: 850px) {
+
+    .training-item,
+    .training-item.even {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.25rem;
+    }
+
+    .training-img-wrap {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --section-padding: 2.5rem 0;
+    }
+
+    .adv-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .training-content h4 {
+        font-size: 1.25rem;
+    }
+
+    .training-content p {
+        font-size: 0.95rem;
+    }
+}
