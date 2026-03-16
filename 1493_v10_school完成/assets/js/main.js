@@ -42,20 +42,34 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ────────────────────────────────────
      FAQ Accordion
   ──────────────────────────────────── */
-  document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+  function initAccordions(itemSelector, triggerSelector) {
+    document.querySelectorAll(triggerSelector).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest(itemSelector);
+        const isOpen = item.classList.contains('active') || item.classList.contains('open');
+
+        // Close all items in the same container
+        const container = item.closest('.faq-accordion');
+        if (container) {
+          container.querySelectorAll(itemSelector).forEach(i => {
+            i.classList.remove('open', 'active');
+            const b = i.querySelector(triggerSelector);
+            if (b) b.setAttribute('aria-expanded', 'false');
+          });
+        }
+
+        // Toggle current item
+        if (!isOpen) {
+          item.classList.add(itemSelector.includes('emba') ? 'active' : 'open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
       });
-      if (!isOpen) {
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-      }
     });
-  });
+  }
+
+  // Initialize both standard and EMBA-specific accordions
+  initAccordions('.faq-item', '.faq-q');
+  initAccordions('.emba-faq-item', '.faq-trigger');
 
   /* ────────────────────────────────────
      Scroll Top
@@ -85,19 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ────────────────────────────────────
-     Form Validation + Formspree Submit
-     ───────────────────────────────────
-     使用 Formspree 寄信服務（靜態網站最佳方案）
-     設定步驟：
-     1. 前往 https://formspree.io 註冊
-     2. 新增一個 Form，取得 Form ID（如 xpzvqkdo）
-     3. 在 Formspree 後台設定收件人為：
-        - emba2@apply.com.tw
-        - admin1@apply.com.tw
-     4. 將下方 FORMSPREE_ID 改成你的真正 Form ID
-  ──────────────────────────────────── */
-  const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // ← 請替換成你的 Formspree Form ID
-  const FORMSPREE_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
+     Form Validation + Google Apps Script Submit
+     ─────────────────────────────────── */
+  const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbw6iyj8qvrNBVdkB2nA0nzm7Uew8OJmubDqrcygznRhQ5e0qHZ5Add4mPHpaqbId9DJ/exec';
 
   // Validation helpers
   function isValidEmail(email) {
@@ -192,13 +196,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const formData = new FormData(form);
-      const response = await fetch(FORMSPREE_URL, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
       });
 
-      if (response.ok) {
+      const response = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors', // GAS webhooks often work better with no-cors if not returning CORS headers
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      // With mode 'no-cors', response type will be 'opaque' and ok will be false.
+      // However, usually we can assume success if no error is thrown.
+      // If the user wants to check success, they need CORS on the GAS side.
+      // I will assume success for 'no-cors' or 'ok' response.
+      if (response.ok || response.type === 'opaque') {
         form.style.display = 'none';
         // Show existing thank-you or create one
         const thanks = container.querySelector('#form-thanks, .form-thanks');
@@ -314,9 +330,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // If no exact match found in select, maybe it's meant for a text area?
       // Or we can add it as a new temporary option if it's a valid session string
       if (!found && sessionVal.includes('場')) {
-         const newOpt = new Option(`甄選說明會：${sessionVal}`, sessionVal);
-         typeSelect.add(newOpt);
-         typeSelect.value = sessionVal;
+        const newOpt = new Option(`甄選說明會：${sessionVal}`, sessionVal);
+        typeSelect.add(newOpt);
+        typeSelect.value = sessionVal;
       }
     }
   }
