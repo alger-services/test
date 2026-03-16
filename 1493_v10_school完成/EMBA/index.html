@@ -19,8 +19,151 @@
     <meta property="og:locale" content="zh_TW">
     <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/emba.css">
     <script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://www.1493.com.tw/"},{"@type":"ListItem","position":2,"name":"EMBA 輔導專區","item":"https://www.1493.com.tw/EMBA/"}]},
+{"@type":"EducationalOrganization","name":"甄選1493","url":"https://www.1493.com.tw/","telephone":"(02)2775-2597","email":"win@1493.com.tw","description":"EMBA、研究所推甄、碩士在職專班書審面試輔導專區"}
+]}
+    </script>
+    <style>
+        body {
+            margin: 0
+        }
+
+        #emba-page {
+            min-height: 100vh;
+            background: linear-gradient(150deg, #1a1a2e 0%, #374151 100%);
+            display: flex;
+            flex-direction: column
+        }
+
+        .emba-header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .emba-header .logo-text {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff
+        }
+
+        .emba-header a {
+            color: rgba(255, 255, 255, .6);
+            font-size: .88rem;
+            transition: color .2s
+        }
+
+        .emba-header a:hover {
+            color: #fff
+        }
+
+        .emba-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1.5rem;
+            text-align: center
+        }
+
+        .emba-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem
+        }
+
+        .emba-main h1 {
+            color: #fff;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            margin-bottom: 1rem
+        }
+
+        .emba-main h1 span {
+            color: #f58042
+        }
+
+        .emba-main p {
+            color: rgba(255, 255, 255, .65);
+            font-size: 1.05rem;
+            max-width: 520px;
+            line-height: 1.85;
+            margin-bottom: 2.5rem
+        }
+
+        .emba-badge {
+            display: inline-block;
+            background: rgba(255, 144, 60, .15);
+            border: 1px solid rgba(255, 144, 60, .3);
+            color: #f58042;
+            padding: .55rem 1.4rem;
+            border-radius: 50px;
+            font-size: .9rem;
+            font-weight: 600;
+            margin-bottom: 2.5rem
+        }
+
+        .emba-services {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 3rem
+        }
+
+        .emba-chip {
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .15);
+            color: rgba(255, 255, 255, .75);
+            padding: .45rem 1.1rem;
+            border-radius: 50px;
+            font-size: .85rem
+        }
+
+        .emba-back {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .2);
+            color: #fff;
+            padding: .65rem 1.5rem;
+            border-radius: 50px;
+            font-size: .9rem;
+            transition: all .2s
+        }
+
+        .emba-back:hover {
+            background: rgba(255, 255, 255, .18)
+        }
+
+        .emba-contact {
+            margin-top: 2.5rem;
+            color: rgba(255, 255, 255, .45);
+            font-size: .83rem
+        }
+
+        .emba-contact a {
+            color: rgba(255, 144, 60, .85);
+            margin: 0 .3rem
+        }
+
+        .emba-contact a:hover {
+            color: #f58042
+        }
+
+        .emba-footer {
+            padding: 1.25rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            color: rgba(255, 255, 255, .3);
+            font-size: .78rem
+        }
+    </style>
+</head>
 
 <body>
 
