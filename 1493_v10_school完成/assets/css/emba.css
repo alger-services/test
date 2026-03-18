@@ -1,136 +1,420 @@
+/* ====================================
+   EMBA 專區專屬樣式 emba.css
+   (同步 SCHOOL 品牌橘色系統)
+==================================== */
+
 body {
     margin: 0
 }
 
+/* 覆寫 EMBA 區塊標題與色彩 */
+.emba-faq-item h4 {
+    color: var(--orange) !important;
+}
+
+.info-card h3 {
+    border-bottom-color: var(--orange-bg) !important;
+}
+
+.info-card li::before {
+    color: var(--orange) !important;
+}
+
+.emba-cta-box {
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark)) !important;
+}
+
+.emba-badge {
+    background: rgba(232, 98, 26, 0.1) !important;
+    border-color: rgba(232, 98, 26, 0.25) !important;
+    color: var(--orange) !important;
+}
+
+/* 卡片與文章邊框同步 */
+.plan-card,
+.story-card,
+.news-item {
+    border-top-color: var(--orange) !important;
+    border-left-color: var(--orange) !important;
+}
+
+.story-avatar {
+    background: var(--orange);
+    color: #fff;
+}
+
+/* Hero Dashboard */
+.hero-dashboard {
+    background: linear-gradient(135deg, var(--orange-bg), var(--orange-bg2));
+    padding: 1rem 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-content {
+    text-align: left;
+}
+
+.hero-content .breadcrumb {
+    justify-content: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content .hero-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    background: rgba(232, 98, 26, 0.1);
+    color: var(--orange);
+    border: 1px solid rgba(232, 98, 26, 0.25);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 2.5rem;
+    max-width: 540px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 1rem;
+}
+
+.hero-panel {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    /* 24px per request */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.panel-head {
+    margin-bottom: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-head h2 {
+    font-size: 1.4rem;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.panel-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    /* 14px per request */
+    margin-bottom: 1.25rem;
+}
+
+.panel-card {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.125rem 1.25rem;
+    /* 18px 20px per request */
+}
+
+.panel-card h3 {
+    font-size: 0.95rem;
+    color: var(--dark);
+    margin-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.4rem;
+}
+
+.panel-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.panel-card li {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+    /* ~8px */
+    display: flex;
+    gap: 0.5rem;
+}
+
+.panel-card li::before {
+    content: "•";
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.panel-alert {
+    background: #fff4ed;
+    border: 1px solid rgba(232, 98, 26, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.panel-alert span {
+    font-size: 1.1rem;
+}
+
+.panel-alert div {
+    font-size: 0.85rem;
+    color: #c2410c;
+    line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+    .hero-dashboard {
+        padding: 4rem 0;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content .breadcrumb {
+        justify-content: center;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-btns {
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-btns {
+        flex-direction: column;
+    }
+
+    .hero-panel {
+        padding: 1.5rem;
+    }
+}
+
+/* 連結與互動狀態 */
+.emba-contact a {
+    color: var(--orange) !important;
+}
+
+.emba-contact a:hover {
+    color: var(--orange-dark) !important;
+}
+
+/* 針對原本 emba.css 中的舊深色系 entry 頁面樣式進行同步 (若仍有使用) */
 #emba-page {
     min-height: 100vh;
-    background: linear-gradient(150deg, #1a1a2e 0%, #374151 100%);
+    background: linear-gradient(150deg, #fff6ef 0%, #fde9da 100%);
     display: flex;
     flex-direction: column
 }
 
-.emba-header {
-    padding: 1.5rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(255, 255, 255, .08)
-}
-
 .emba-header .logo-text {
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: #fff
+    color: var(--orange)
 }
 
 .emba-header a {
-    color: rgba(255, 255, 255, .6);
-    font-size: .88rem;
-    transition: color .2s
+    color: var(--dark2);
 }
 
 .emba-header a:hover {
-    color: #fff
-}
-
-.emba-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 1.5rem;
-    text-align: center
-}
-
-.emba-icon {
-    font-size: 4rem;
-    margin-bottom: 1.5rem
+    color: var(--orange)
 }
 
 .emba-main h1 {
-    color: #fff;
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    margin-bottom: 1rem
+    color: var(--dark);
 }
 
 .emba-main h1 span {
-    color: #f58042
+    color: var(--orange)
 }
 
 .emba-main p {
-    color: rgba(255, 255, 255, .65);
-    font-size: 1.05rem;
-    max-width: 520px;
-    line-height: 1.85;
-    margin-bottom: 2.5rem
-}
-
-.emba-badge {
-    display: inline-block;
-    background: rgba(255, 144, 60, .15);
-    border: 1px solid rgba(255, 144, 60, .3);
-    color: #f58042;
-    padding: .55rem 1.4rem;
-    border-radius: 50px;
-    font-size: .9rem;
-    font-weight: 600;
-    margin-bottom: 2.5rem
-}
-
-.emba-services {
-    display: flex;
-    gap: 1.25rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 3rem
+    color: var(--gray);
 }
 
 .emba-chip {
-    background: rgba(255, 255, 255, .08);
-    border: 1px solid rgba(255, 255, 255, .15);
-    color: rgba(255, 255, 255, .75);
-    padding: .45rem 1.1rem;
-    border-radius: 50px;
-    font-size: .85rem
+    background: var(--orange-bg);
+    border: 1px solid rgba(232, 98, 26, 0.15);
+    color: var(--dark2);
 }
 
 .emba-back {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-    background: rgba(255, 255, 255, .1);
-    border: 1px solid rgba(255, 255, 255, .2);
-    color: #fff;
-    padding: .65rem 1.5rem;
-    border-radius: 50px;
-    font-size: .9rem;
-    transition: all .2s
+    background: var(--white);
+    border: 1px solid var(--orange);
+    color: var(--orange);
 }
 
 .emba-back:hover {
-    background: rgba(255, 255, 255, .18)
-}
-
-.emba-contact {
-    margin-top: 2.5rem;
-    color: rgba(255, 255, 255, .45);
-    font-size: .83rem
-}
-
-.emba-contact a {
-    color: rgba(255, 144, 60, .85);
-    margin: 0 .3rem
-}
-
-.emba-contact a:hover {
-    color: #f58042
+    background: var(--orange-bg);
 }
 
 .emba-footer {
-    padding: 1.25rem 2rem;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, .08);
-    color: rgba(255, 255, 255, .3);
-    font-size: .78rem
+    border-top: 1px solid var(--border);
+    color: var(--gray);
+}
+
+/* ====================================
+   FAQ Accordion System
+   ==================================== */
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.emba-faq-item {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.emba-faq-item:hover {
+    border-color: var(--orange);
+    box-shadow: 0 4px 12px rgba(232, 98, 26, 0.08);
+}
+
+.faq-trigger {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s;
+}
+
+.faq-trigger:hover {
+    background: rgba(232, 98, 26, 0.02);
+}
+
+.faq-trigger h4 {
+    margin: 0 !important;
+    font-size: 1.1rem;
+    color: var(--dark);
+    font-weight: 600;
+    line-height: 1.4;
+    transition: color 0.3s;
+}
+
+.faq-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    flex-shrink: 0;
+    margin-left: 1rem;
+    display: block;
+}
+
+.faq-icon::before, 
+.faq-icon::after {
+    content: '';
+    position: absolute;
+    background-color: #94a3b8;
+    transition: all 0.3s ease;
+}
+
+.faq-icon::before {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.faq-icon::after {
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.emba-faq-item.active {
+    border-color: var(--orange);
+    box-shadow: 0 4px 20px rgba(232, 98, 26, 0.12);
+}
+
+.emba-faq-item.active .faq-trigger h4 {
+    color: var(--orange) !important;
+}
+
+.emba-faq-item.active .faq-icon::after {
+    transform: translateX(-50%) rotate(90deg);
+    opacity: 0;
+}
+
+.emba-faq-item.active .faq-icon::before {
+    background-color: var(--orange);
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.emba-faq-item.active .faq-content {
+    max-height: 5000px;
+}
+
+.faq-content-inner {
+    padding: 0 1.5rem 1.5rem;
+}
+
+.faq-content p {
+    margin: 0 !important;
+    color: var(--gray) !important;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+    .faq-trigger {
+        padding: 1.125rem 1.25rem;
+    }
+    
+    .faq-trigger h4 {
+        font-size: 1.05rem;
+    }
 }
