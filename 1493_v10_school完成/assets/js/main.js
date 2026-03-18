@@ -46,20 +46,27 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll(triggerSelector).forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.closest(itemSelector);
-        const isOpen = item.classList.contains('active') || item.classList.contains('open');
+        if (!item) return;
 
-        // Close all items in the same container
-        const container = item.closest('.faq-accordion');
+        const isOpen = item.classList.contains('open') || item.classList.contains('active');
+        const container = item.closest('.faq-accordion') || item.parentElement.closest('.faq-list');
+
+        // Close other items if they are in the same list/section
         if (container) {
           container.querySelectorAll(itemSelector).forEach(i => {
-            i.classList.remove('open', 'active');
-            const b = i.querySelector(triggerSelector);
-            if (b) b.setAttribute('aria-expanded', 'false');
+            if (i !== item) {
+              i.classList.remove('open', 'active');
+              const b = i.querySelector(triggerSelector);
+              if (b) b.setAttribute('aria-expanded', 'false');
+            }
           });
         }
 
         // Toggle current item
-        if (!isOpen) {
+        if (isOpen) {
+          item.classList.remove('open', 'active');
+          btn.setAttribute('aria-expanded', 'false');
+        } else {
           item.classList.add(itemSelector.includes('emba') ? 'active' : 'open');
           btn.setAttribute('aria-expanded', 'true');
         }
